@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testrn.iml" filepath="$PROJECT_DIR$/.idea/modules/testrn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/testrn.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/testrn.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1376292705/testrn.react-native-community_async-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/1376292705/testrn.react-native-community_async-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1811612030/testrn.react-native-extra-dimensions-android.iml" filepath="$PROJECT_DIR$/.idea/modules/1811612030/testrn.react-native-extra-dimensions-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2143156231/testrn.react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/-2143156231/testrn.react-native-gesture-handler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1498064430/testrn.react-native-permissions.iml" filepath="$PROJECT_DIR$/.idea/modules/-1498064430/testrn.react-native-permissions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1557187281/testrn.react-native-picker_picker.iml" filepath="$PROJECT_DIR$/.idea/modules/1557187281/testrn.react-native-picker_picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1254506877/testrn.react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/-1254506877/testrn.react-native-reanimated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1632434654/testrn.react-native-safe-area-context.iml" filepath="$PROJECT_DIR$/.idea/modules/-1632434654/testrn.react-native-safe-area-context.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/787957946/testrn.react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/787957946/testrn.react-native-screens.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-524283470/testrn.react-native-svg.iml" filepath="$PROJECT_DIR$/.idea/modules/-524283470/testrn.react-native-svg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-298009987/testrn.react-native-vector-icons.iml" filepath="$PROJECT_DIR$/.idea/modules/-298009987/testrn.react-native-vector-icons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2072140607/testrn.rn-mobile-barcode-scanner.iml" filepath="$PROJECT_DIR$/.idea/modules/-2072140607/testrn.rn-mobile-barcode-scanner.iml" />
+    </modules>
+  </component>
+</project>
