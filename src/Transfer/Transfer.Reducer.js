@@ -74,7 +74,7 @@ export const getVerifyPin = (state = initialState, action) => {
   };
 
 export const getTransfer = (state = initialState, action) => {
-  console.log('---- getTransfer action', action);
+  // console.log('---- getTransfer action', action);
   
     switch (action.type) {
       case GET_TRANSFER_REQUEST:

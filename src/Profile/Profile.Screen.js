@@ -92,7 +92,6 @@ const ProfileScreen = () => {
   };
 
   const logout = () => {
-    // REDUX STEP 13 - CREATE REQUEST
     dispatch(getLogoutRequest())
 
     navigation.navigate('LoginScreen', {})

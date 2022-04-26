@@ -22,9 +22,13 @@ import {
 } from './SignUp/SignUp.Reducer';
 
 import {
-  // REDUX STEP 16 - ADD REDUCER
   getProfile
 } from './Profile/Profile.Reducer';
+
+import {
+  // REDUX STEP ADD REDUCER
+  getReload
+} from './Reload/Reload.Reducer';
 
 import {
   getCheckTransactionPhone,
@@ -71,9 +75,10 @@ const rootReducer = combineReducers({
   getTransfer,
   getQuestion,
   getProfile, 
-
-  // REDUX STEP 17 - COMBINE REDUCER
   getLogout,
+
+  // REDUX - COMBINE REDUCER
+  getReload,
 
   getFollower
 });

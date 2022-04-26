@@ -1,13 +1,14 @@
 ////https://www.npmjs.com/package/react-native-qrcode-scanner
 
 import React, { useState, useEffect, useRef } from 'react';
-import {StatusBar, Text, TouchableOpacity, View, SafeAreaView, Image, Picker, ActionSheetIOS} from 'react-native';
+import {StatusBar, Text, TouchableOpacity, View, SafeAreaView, Image, Picker, ActionSheetIOS, Linking} from 'react-native';
 import styles from './ReloadDetail.Style';
 import colors from '../Themes/Colors';
 import {barStyle} from '../const';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
+import {getReloadRequest} from '../Reload/Reload.Action';
 
 const ReloadDetailScreen = () => {
   const navigation = useNavigation();
@@ -16,7 +17,9 @@ const ReloadDetailScreen = () => {
   const dispatch = useDispatch();
   const getState = useSelector(state => state);
 
-  const checkPhone = useSelector(state => state.getCheckTransactionPhone);
+  const login = useSelector(state => state.getLogin);
+  const reload = useSelector(state => state.getReload);
+
   const [allownext,setAllownext] = useState(false);
   const [credit, setCredit] = useState(route.params.amount);
   const [selectedvalue, setSelectedvalue] = useState(0);
@@ -25,10 +28,22 @@ const ReloadDetailScreen = () => {
   const [presscreditcard, setPresscreditcard] = useState(false);
   const [pressewallet, setPressewallet] = useState(false);
   const [iositems, setIositems] = useState(['Cancel','Ambank','CIMB Bank','Hong Leong Bank','Maybank','RHB Bank']);
+  const [token, setToken] = useState(login.data && login.data.data.token);
 
   useEffect(() => {
   }, [])
   
+  useEffect(() => {
+    // setUrl(reload.data.redirect_link)
+    if(reload.data && reload.data.success) {
+
+      if(allownext) {
+        setAllownext(false)
+        Linking.openURL(reload.data.data.redirect_link);
+      }
+    }
+  }, [reload])
+
   const renderToolbar = () => {
     return (
       <View style={styles.toolbar}>
@@ -73,7 +88,39 @@ const ReloadDetailScreen = () => {
   }
 
   const handleSubmit = () => {
-    console.log('---- handleSubmit')
+    let provider = '';
+
+    switch (selectedvalue) {
+      case 1:
+        provider = 'AMB'
+        break;
+  
+      case 2:
+        provider = 'CIMB'
+        break;
+  
+      case 3:
+        provider = 'HLB'
+        break;
+    
+      case 4:
+        provider = 'MBB'
+        break;
+      
+      case 5:
+        provider = 'RHB'
+        break;
+        
+      default:
+        //
+    }
+
+    const payment_mode = 'OB';
+    const reload = credit;
+    const timestamp = new Date().getTime();
+
+    setAllownext(true)
+    dispatch(getReloadRequest({token, payment_mode, reload, provider, timestamp}))
   }
 
   const onPress = () => {
@@ -161,11 +208,11 @@ const ReloadDetailScreen = () => {
                   }}
                 >
                   <Picker.Item label={'Please Select'} value={''} />
-                  <Picker.Item label={'Ambank'} value={'ambank'} />
-                  <Picker.Item label={'CIMB'} value={'cimb'} />
-                  <Picker.Item label={'Hong Leong Bank'} value={'hongleong'} />
-                  <Picker.Item label={'Maybank'} value={'maybank'} />
-                  <Picker.Item label={'RHB Bank'} value={'rhbbank'} />
+                  <Picker.Item label={'Ambank'} value={'AMB'} />
+                  <Picker.Item label={'CIMB'} value={'CIMB'} />
+                  <Picker.Item label={'Hong Leong Bank'} value={'HLB'} />
+                  <Picker.Item label={'Maybank'} value={'MBB'} />
+                  <Picker.Item label={'RHB Bank'} value={'RHB'} />
 
                 </Picker>
               </View>   

@@ -1,23 +1,20 @@
 import {call, put, takeLatest} from 'redux-saga/effects';
 
 import {
-  //REDUX STEP - ADD CALLBACK
   GET_PROFILE_REQUEST,
   getProfileFail,
   getProfileSuccess,
 } from './Profile.Action';
 
-import {getProfile} from '../api';  //REDUX STEP
+import {getProfile} from '../api';  
 
 import {sendNetworkFail} from '../actions';
 
-//REDUX STEP - ADD WATCH
 export function* watchGetProfile() {
-  console.log('---- watchGetProfile')
+  // console.log('---- watchGetProfile')
   yield takeLatest(GET_PROFILE_REQUEST, handleGetProfile);
 }
 
-//REDUX STEP ADD HANDLE
 function* handleGetProfile(action) {
   const response = yield call(getProfile, action.payload);
   if (response.ok) {

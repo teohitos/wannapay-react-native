@@ -1,51 +1,31 @@
 import {call, put, takeLatest} from 'redux-saga/effects';
-import {
-  getCheckTransactionPhoneFail,
-  getCheckTransactionPhoneSuccess,
-  GET_CHECKTRANSACTIONPHONE_REQUEST,
-  
-  getVerifyPinFail,
-  getVerifyPinSuccess,
-  GET_VERIFYPIN_REQUEST,
-  
-  getTransferFail,
-  getTransferSuccess,
-  GET_TRANSFER_REQUEST,
-  
-} from './Transfer.Action';
+import {  
+  // REDUX - ADD METHOD
+  getReloadFail,
+  getReloadSuccess,
+  GET_RELOAD_REQUEST,
+} from './Reload.Action';
 
 import {
-  getCheckTransactionPhone,
-  getVerifyPin,
-  getTransfer,
-
+  getReload  //REDUX - IMPORT API
 } from '../api';
 
 import {sendNetworkFail} from '../actions';
 
-export function* watchGetCheckTransactionPhone() {
-  // console.log('--- watchGetCheckTransactionPhone')
-  yield takeLatest(GET_CHECKTRANSACTIONPHONE_REQUEST, handleGetCheckTransactionPhone);
+//REDUX
+export function* watchGetReload() {
+  console.log('--- watchGetReload')
+  yield takeLatest(GET_RELOAD_REQUEST, handleGetReload);
 }
 
-export function* watchGetVerifyPin() {
-  // console.log('--- watchGetVerifyPin')
-  yield takeLatest(GET_VERIFYPIN_REQUEST, handleGetVerifyPin);
-}
-
-export function* watchGetTransfer() {
-  console.log('--- watchGetTransfer')
-  yield takeLatest(GET_TRANSFER_REQUEST, handleGetTransfer);
-}
-
-
-function* handleGetCheckTransactionPhone(action) {
-  // console.log('--- handleGetCheckTransactionPhone action', action)
+//REDUX
+function* handleGetReload(action) {
+  console.log('--- handleGetReload action', action)
   
-  const response = yield call(getCheckTransactionPhone, action.payload);
+  const response = yield call(getReload, action.payload);
   
   if (response.ok) {
-    yield put(getCheckTransactionPhoneSuccess(response.data));
+    yield put(getReloadSuccess(response.data));
     
   } else {
     if (
@@ -53,54 +33,10 @@ function* handleGetCheckTransactionPhone(action) {
       response.problem !== 'TIMEOUT_ERROR' &&
       response.problem !== 'CONNECTION_ERROR'
     ) {
-      yield put(getCheckTransactionPhoneFail(response.problem));
+      yield put(getReloadFail(response.problem));
     } else {
       yield put(sendNetworkFail(response.problem));
-      yield put(getCheckTransactionPhoneFail(response.problem));
-    }
-  }
-}
-
-function* handleGetVerifyPin(action) {
-  // console.log('--- handleGetVerifyPin action', action)
-  
-  const response = yield call(getVerifyPin, action.payload);
-  
-  if (response.ok) {
-    yield put(getVerifyPinSuccess(response.data));
-    
-  } else {
-    if (
-      response.problem !== 'NETWORK_ERROR' &&
-      response.problem !== 'TIMEOUT_ERROR' &&
-      response.problem !== 'CONNECTION_ERROR'
-    ) {
-      yield put(getVerifyPinFail(response.problem));
-    } else {
-      yield put(sendNetworkFail(response.problem));
-      yield put(getVerifyPinFail(response.problem));
-    }
-  }
-}
-
-function* handleGetTransfer(action) {
-  console.log('--- handleGetTransfer action', action)
-  
-  const response = yield call(getTransfer, action.payload);
-  
-  if (response.ok) {
-    yield put(getTransferSuccess(response.data));
-    
-  } else {
-    if (
-      response.problem !== 'NETWORK_ERROR' &&
-      response.problem !== 'TIMEOUT_ERROR' &&
-      response.problem !== 'CONNECTION_ERROR'
-    ) {
-      yield put(getTransferFail(response.problem));
-    } else {
-      yield put(sendNetworkFail(response.problem));
-      yield put(getTransferFail(response.problem));
+      yield put(getReloadFail(response.problem));
     }
   }
 }

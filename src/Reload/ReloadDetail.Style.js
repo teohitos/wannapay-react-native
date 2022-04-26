@@ -118,7 +118,7 @@ export default StyleSheet.create({
     },
     shadowOpacity: 0.37,
     shadowRadius: 7.49,
-    elevation: 5,
+    elevation: 2,
     flex: 1,
     flexDirection: 'column',
   },

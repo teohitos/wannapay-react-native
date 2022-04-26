@@ -34,7 +34,7 @@ export function* watchGetVerifyPin() {
 }
 
 export function* watchGetTransfer() {
-  console.log('--- watchGetTransfer')
+  // console.log('--- watchGetTransfer')
   yield takeLatest(GET_TRANSFER_REQUEST, handleGetTransfer);
 }
 

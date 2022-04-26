@@ -12,7 +12,6 @@ import { setAppInfo } from 'react-native/Libraries/LogBox/Data/LogBoxData';
 const SignUpProfileScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  console.log('-- route', route)
 
   const dispatch = useDispatch();
   const getState = useSelector(state => state);

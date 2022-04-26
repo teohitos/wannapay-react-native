@@ -26,9 +26,13 @@ import {
 } from './Transfer/Transfer.Saga';
 
 import {
-  // REDUX STEP 14 - ADD WATCH
   watchGetProfile,
 } from './Profile/Profile.Saga';
+
+import {
+  // REDUX - ADD WATCH
+  watchGetReload,
+} from './Reload/Reload.Saga';
 
 import {watchGetFollower} from './Follower/Follower.Saga';
 
@@ -50,9 +54,10 @@ export default function* rootSaga() {
     watchGetVerifyPin(),
     watchGetTransfer(),
     watchGetQuestion(),
-
-   // REDUX STEP 15 - EXPORT WATCH
    watchGetProfile(),
+
+   // REDUX EXPORT WATCH
+   watchGetReload(),
 
    watchGetFollower()
   ]);

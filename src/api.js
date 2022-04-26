@@ -223,9 +223,8 @@ export const getQuestion = body => {
   return api.post('api/get_question', '');
 };
 
-// REDUX STEP 1 - CREATE API
 export const getProfile = body => {
-  console.log('---- getProfile API body', body)
+  // console.log('---- getProfile API body', body)
 
   const token = body.token;
   console.log('--- getProfile token', token)
@@ -237,4 +236,23 @@ export const getProfile = body => {
   };  
 
   return api.post('api/client/get_profile', param, config);
+};
+
+// REDUX STEP 1 - CREATE API
+export const getReload = body => {
+  console.log('---- getReload API body', body)
+
+  const token = body.data.token;
+  const param = {
+    payment_mode: body.data.payment_mode,
+    provider: body.data.provider,
+    reload: body.data.reload,
+    timestamp: body.data.timestamp
+  };
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` }
+  };  
+
+  return api.post('api/deposit/reload', param, config);
 };

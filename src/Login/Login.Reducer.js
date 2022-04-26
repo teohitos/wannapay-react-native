@@ -38,7 +38,7 @@ export const getLogin = (state = initialState, action) => {
 };
 
 export const getLogout = (state = initialState, action) => {
-  console.log('---- getLogout action', action);
+  // console.log('---- getLogout action', action);
 
   switch (action.type) {
     case GET_LOGOUT_REQUEST:

@@ -1,5 +1,4 @@
 import {
-  //REDUX STEP
   GET_PROFILE_FAIL,
   GET_PROFILE_REQUEST,
   GET_PROFILE_SUCCESS,
@@ -10,7 +9,7 @@ const initialState = {fetching: false, data: null, err: null};
 export const getProfile = (state = initialState, action) => {
   switch (action.type) {
     case GET_PROFILE_REQUEST:
-      console.log('---- GET_PROFILE_REQUEST')
+      // console.log('---- GET_PROFILE_REQUEST')
 
       return {
         fetching: true,
@@ -19,7 +18,7 @@ export const getProfile = (state = initialState, action) => {
       };
 
       case GET_PROFILE_SUCCESS:
-      console.log('---- GET_PROFILE_SUCCESS')
+      // console.log('---- GET_PROFILE_SUCCESS')
       return {
         fetching: false,
         data: action.payload.data,
@@ -27,7 +26,7 @@ export const getProfile = (state = initialState, action) => {
       };
 
       case GET_PROFILE_FAIL:
-        console.log('---- GET_PROFILE_FAIL')
+        // console.log('---- GET_PROFILE_FAIL')
         return {
         fetching: false,
         data: null,

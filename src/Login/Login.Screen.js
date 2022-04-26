@@ -30,7 +30,6 @@ import SmoothPinCodeInput from "react-native-smooth-pincode-input"
 const LoginScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  console.log('--- route', route)
   
   const getState = useSelector(state => state);
   console.log('--- getState',getState)
