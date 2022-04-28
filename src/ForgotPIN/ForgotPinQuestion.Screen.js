@@ -87,7 +87,7 @@ const ForgotPinQuestionScreen = () => {
         userInterfaceStyle: 'light'
       },
       buttonIndex => {
-        console.log('--- onPressId buttonIndex',buttonIndex, iosiditems[buttonIndex])
+        // console.log('--- onPressId buttonIndex',buttonIndex, iosiditems[buttonIndex])
         setIdresult(buttonIndex);
 
         if(buttonIndex !== 0) {
@@ -213,7 +213,7 @@ const ForgotPinQuestionScreen = () => {
               // onPress={goSignUpProfile}
           >
             <Text style={styles.buttonText}>
-            Next {selectedValue}, {result}
+            Next 
             </Text>
           </TouchableOpacity>
 

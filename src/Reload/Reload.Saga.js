@@ -14,13 +14,13 @@ import {sendNetworkFail} from '../actions';
 
 //REDUX
 export function* watchGetReload() {
-  console.log('--- watchGetReload')
+  // console.log('--- watchGetReload')
   yield takeLatest(GET_RELOAD_REQUEST, handleGetReload);
 }
 
 //REDUX
 function* handleGetReload(action) {
-  console.log('--- handleGetReload action', action)
+  // console.log('--- handleGetReload action', action)
   
   const response = yield call(getReload, action.payload);
   

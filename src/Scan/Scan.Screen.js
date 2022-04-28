@@ -9,10 +9,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 
-// import {CameraKitCameraScreen} from 'react-native-camera-kit';
-// import QRCodeScanner from 'react-native-qrcode-scanner';
-import { RNCamera } from 'react-native-camera';
-
 const ScanScreen = () => {
   const navigation = useNavigation();
 

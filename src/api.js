@@ -227,7 +227,6 @@ export const getProfile = body => {
   // console.log('---- getProfile API body', body)
 
   const token = body.token;
-  console.log('--- getProfile token', token)
 
   const param = {};
 
@@ -240,7 +239,7 @@ export const getProfile = body => {
 
 // REDUX STEP 1 - CREATE API
 export const getReload = body => {
-  console.log('---- getReload API body', body)
+  // console.log('---- getReload API body', body)
 
   const token = body.data.token;
   const param = {

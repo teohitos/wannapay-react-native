@@ -19,12 +19,12 @@ import {
 import {sendNetworkFail} from '../actions';
 
 export function* watchGetCheckTransactionPhone() {
-  console.log('--- watchGetCheckTransactionPhone')
+  // console.log('--- watchGetCheckTransactionPhone')
   yield takeLatest(GET_CHECKTRANSACTIONPHONE_REQUEST, handleGetCheckTransactionPhone);
 }
 
 export function* watchGetVerifyPin() {
-  console.log('--- watchGetVerifyPin')
+  // console.log('--- watchGetVerifyPin')
   yield takeLatest(GET_VERIFYPIN_REQUEST, handleGetVerifyPin);
 }
 

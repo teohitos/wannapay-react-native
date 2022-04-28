@@ -10,7 +10,7 @@ const initialState = {fetching: false, data: null, err: null};
 
 // REDUX - ADD REDUCER
 export const getReload = (state = initialState, action) => {
-  console.log('---- getReload action', action);
+  // console.log('---- getReload action', action);
   
     switch (action.type) {
       case GET_RELOAD_REQUEST:

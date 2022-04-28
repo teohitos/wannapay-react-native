@@ -27,6 +27,9 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 import PhoneInput from "react-native-phone-number-input";
 import SmoothPinCodeInput from "react-native-smooth-pincode-input"
 
+const offline_data = require('../../data.json');
+console.log('--- offline_data',offline_data)
+
 const LoginScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
@@ -41,7 +44,6 @@ const LoginScreen = () => {
   
   const dispatch = useDispatch();
   const [text, onChangeText] = React.useState("Useless Text");
-  // const [dismiss,setDismiss] = useState(false);
   const phoneInput = useRef<PhoneInput>(null);
   const [phone, setPhone] = useState("");
   const [pin, setPin] = useState("");
@@ -53,7 +55,6 @@ const LoginScreen = () => {
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
         // code
-        // alert(1111)
     });
     const unsubscribe2 = navigation.addListener('blur', () => {
         // code
@@ -98,7 +99,7 @@ useEffect(() => {
       }
     
     } else {
-      if(!blur && allownext) {
+      if(allownext) {
         navigation.navigate('LandingScreen', {});
       }
       

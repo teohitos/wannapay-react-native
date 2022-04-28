@@ -16,7 +16,8 @@ const ReloadDetailScreen = () => {
 
   const dispatch = useDispatch();
   const getState = useSelector(state => state);
-
+  console.log('--- getState', JSON.stringify(getState)
+  )
   const login = useSelector(state => state.getLogin);
   const reload = useSelector(state => state.getReload);
 
