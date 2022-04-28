@@ -34,12 +34,11 @@ const ReloadDetailScreen = () => {
   }, [])
   
   useEffect(() => {
-    // setUrl(reload.data.redirect_link)
     if(reload.data && reload.data.success) {
 
       if(allownext) {
         setAllownext(false)
-        Linking.openURL(reload.data.data.redirect_link);
+        Linking.openURL(reload.data.data.redirect_link);        
       }
     }
   }, [reload])

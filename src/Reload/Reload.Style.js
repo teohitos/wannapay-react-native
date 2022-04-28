@@ -29,7 +29,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     paddingLeft: 10,
     paddingRight: 10,
-    paddingTop: 20
+    paddingTop: 20,
   },
   
   grid_container:{
@@ -43,12 +43,30 @@ export default StyleSheet.create({
   titleGridBox:{
     // backgroundColor: "#ffffff",
     width:'45%',
-    height:30,
+    // height:30,
     alignItems: 'center',
     justifyContent: 'center',
     margin:7,
   },
 
+  creditGridBox:{
+    // backgroundColor: "yellow",
+    width:'70%',
+    // height:30,
+    // alignItems: 'center',
+    justifyContent: 'center',
+    margin:7,
+  },
+
+  creditTitleGridBox:{
+    // backgroundColor: "red",
+    width:'20%',
+    // height:30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin:7,
+  },
+  
   titleCredit: {
     // backgroundColor: "green",
     width:'100%',
@@ -203,6 +221,13 @@ export default StyleSheet.create({
     paddingLeft: 30
     // textAlign: 'center',
     // fontWeight: 'bold',
+  },
+
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
 
 });

@@ -22,8 +22,9 @@ const ReloadScreen = () => {
   const [press100, setPress100] = useState(false);
   const [press200, setPress200] = useState(false);
   const [press500, setPress500] = useState(false);
-  const [credit, setCredit] = useState(0);
   const [allownext,setAllownext] = useState(false);
+  // const [amount, onChangeAmount] = React.useState("");
+  const [credit, setCredit] = React.useState(0);
 
   useEffect(() => {
   }, [])
@@ -93,6 +94,11 @@ const ReloadScreen = () => {
     navigation.navigate('ReloadDetailScreen', {amount: credit});
   };
 
+  const onChangeAmount = e => {
+    console.log('--- onChangeAmount',e)
+    setCredit(e)
+  }
+
   const renderToolbar = () => {
     return (
       <View style={styles.toolbar}>
@@ -124,9 +130,9 @@ const ReloadScreen = () => {
 
       <SafeAreaView style={{flex: 1}}>
 
+        {/* grid 1 */}
         <View style={styles.title_grid_container}>
-
-          <View style={styles.titleGridBox}>
+        <View style={styles.titleGridBox}>
             <Text style={styles.leftTextStyle}>Amount (CREDIT) *</Text>
           </View>
 
@@ -134,8 +140,18 @@ const ReloadScreen = () => {
             <Text style={styles.rightTextStyle}>Min reload amount is 1</Text>
           </View>
 
-          <View style={styles.titleCredit}>
-            <Text style={styles.titleTextStyle}>CREDIT {credit}</Text>
+          <View style={styles.creditTitleGridBox}>
+            <Text style={styles.titleTextStyle}>CREDIT</Text>
+          </View>
+
+          <View style={styles.creditGridBox}>
+            <TextInput
+              style={styles.input}
+              onChangeText={onChangeAmount}
+              value={credit.toString()}
+              placeholder="Enter Amount"
+              // keyboardType="numeric"
+            />
           </View>
 
         </View>
