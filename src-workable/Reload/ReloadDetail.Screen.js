@@ -39,10 +39,7 @@ const ReloadDetailScreen = () => {
 
       if(allownext) {
         setAllownext(false)
-        // Linking.openURL(reload.data.data.redirect_link);  
-        Linking.openURL('slack://secret/magic-login/other-secret');  
-        
-        
+        Linking.openURL(reload.data.data.redirect_link);        
       }
     }
   }, [reload])
@@ -223,7 +220,7 @@ const ReloadDetailScreen = () => {
 
           {
             //ios action sheet
-            Platform.OS == 'ios' && pressonlinebanking &&
+            Platform.OS == 'ios' &&
             <View style={styles.ioscard}>
               <TouchableOpacity
                 style={styles.picker}

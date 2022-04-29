@@ -1,0 +1,78 @@
+
+templates:
+----------
+https://www.bootdey.com/react-native-snippets
+
+create project
+--------------
+react-native init ewalletrn
+
+environment setup
+-----------------
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+
+
+packages
+--------
+$ npm cache clean --force  
+$ npm cache verify  
+$ npm install react-native-ui-lib
+$ npm i react-native-reanimated react-native-gesture-handler
+$ npm install redux-saga
+$ npm i @react-native-async-storage/async-storage
+
+App icon
+--------
+Android : 
+[ProjectDirectory]/android/app/src/main/res/mipmap-*/.
+
+iOS : 
+in Xcode
+
+
+generate android key
+--------------------
+$ keytool -genkey -v -keystore ewallet.keystore -alias ewallet -keyalg RSA -keysize 2048 -validity 10000
+
+password : Ewallet!1
+
+What is your first and last name?
+  [Unknown]:  teoh      
+What is the name of your organizational unit?
+  [Unknown]:  itos
+What is the name of your organization?
+  [Unknown]:  itos
+What is the name of your City or Locality?
+  [Unknown]:  kl
+What is the name of your State or Province?
+  [Unknown]:  kl
+What is the two-letter country code for this unit?
+  [Unknown]:  my
+
+
+build bundle
+------------
+$ react-native bundle --platform android --dev false --entry-file index.js   --bundle-output android/app/src/main/assets/index.android.bundle   --assets-dest android/app/src/main/res/
+
+build release apk
+-----------------
+$ cd android
+$ ./gradlew clean
+$ ./gradlew assembleDebug
+$ ./gradlew assembleRelease
+$ ./gradlew bundleRelease
+$ ./gradlew installDebug
+$ ./gradlew installRelease
+$ react-native run-android --variant=release
+
+$ rm -rf ./android/app/src/main/res/raw
+$ rm -rf ./android/app/src/main/res/drawable-*
+
+
+
+
