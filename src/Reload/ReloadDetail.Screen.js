@@ -41,8 +41,8 @@ const ReloadDetailScreen = () => {
 
       if(allownext) {
         setAllownext(false)
-        // Linking.openURL(reload.data.data.redirect_link);  
-        Linking.openURL('slack://secret/magic-login/other-secret');  
+        Linking.openURL(reload.data.data.redirect_link);  
+        navigation.navigate('LandingScreen', {})
       }
     } else {
       

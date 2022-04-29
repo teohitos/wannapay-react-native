@@ -73,6 +73,10 @@ $ react-native run-android --variant=release
 $ rm -rf ./android/app/src/main/res/raw
 $ rm -rf ./android/app/src/main/res/drawable-*
 
+add Deferred Deep link
+----------------------
+https://blog.jscrambler.com/how-to-handle-deep-linking-in-a-react-native-app
+
 # for iOS
 npx uri-scheme add peoplesapp --ios
 
