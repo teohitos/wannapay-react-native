@@ -1,7 +1,7 @@
 ////https://www.npmjs.com/package/react-native-qrcode-scanner
 
 import React, { useState, useEffect, useRef } from 'react';
-import {StatusBar, Text, TouchableOpacity, View, SafeAreaView, Image, Picker, ActionSheetIOS, Linking} from 'react-native';
+import {StatusBar, Text, TouchableOpacity, View, SafeAreaView, Image, Picker, ActionSheetIOS, Linking, Alert} from 'react-native';
 import styles from './ReloadDetail.Style';
 import colors from '../Themes/Colors';
 import {barStyle} from '../const';
@@ -16,10 +16,11 @@ const ReloadDetailScreen = () => {
 
   const dispatch = useDispatch();
   const getState = useSelector(state => state);
-  console.log('--- getState', JSON.stringify(getState)
-  )
+  console.log('--- getState', getState)
+
   const login = useSelector(state => state.getLogin);
   const reload = useSelector(state => state.getReload);
+  console.log('--- reload',reload)
 
   const [allownext,setAllownext] = useState(false);
   const [credit, setCredit] = useState(route.params.amount);
@@ -30,6 +31,7 @@ const ReloadDetailScreen = () => {
   const [pressewallet, setPressewallet] = useState(false);
   const [iositems, setIositems] = useState(['Cancel','Ambank','CIMB Bank','Hong Leong Bank','Maybank','RHB Bank']);
   const [token, setToken] = useState(login.data && login.data.data.token);
+  const [dismiss,setDismiss] = useState(false);
 
   useEffect(() => {
   }, [])
@@ -41,8 +43,30 @@ const ReloadDetailScreen = () => {
         setAllownext(false)
         // Linking.openURL(reload.data.data.redirect_link);  
         Linking.openURL('slack://secret/magic-login/other-secret');  
-        
-        
+      }
+    } else {
+      
+      if(allownext) {
+        if(reload.data && reload.data.message) {
+          Alert.alert(
+            "Reload",
+              reload.data && reload.data.message,
+            [
+              {
+                text: "OK",
+                onPress: () => setDismiss(true),
+                style: "default",
+              },
+            ],
+            {
+              cancelable: true,
+                onDismiss: () => 
+                  setDismiss(true)
+            }
+          );
+
+        }
+
       }
     }
   }, [reload])
