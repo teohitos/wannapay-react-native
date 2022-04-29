@@ -73,6 +73,10 @@ $ react-native run-android --variant=release
 $ rm -rf ./android/app/src/main/res/raw
 $ rm -rf ./android/app/src/main/res/drawable-*
 
+# for iOS
+npx uri-scheme add peoplesapp --ios
 
+# for Android
+npx uri-scheme add peoplesapp --android
 
 

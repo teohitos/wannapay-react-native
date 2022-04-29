@@ -38,6 +38,10 @@ import {clearNetworkFail} from '../actions';
 
 const Stack = createStackNavigator();
 
+const linking = {
+  prefixes: ['itoewallet://']
+};
+
 const RootContainerScreen = () => {
   const sendNetworkFail = useSelector(state => state.sendNetworkFail);
   const [isKeyboardShow, setIsKeyboardShow] = useState(false);
@@ -86,7 +90,9 @@ const RootContainerScreen = () => {
 
   return (
     <View style={styles.mainContainer}>
-      <NavigationContainer>
+      <NavigationContainer
+        linking={linking}
+      >
         <Stack.Navigator initialRouteName="Drawer" headerMode={'none'}>
           <Stack.Screen name="Drawer" component={DrawerNavigatorScreen} />
           <Stack.Screen
